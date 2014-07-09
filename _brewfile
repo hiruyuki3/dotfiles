@@ -1,0 +1,28 @@
+update
+upgrade
+
+tap phinze/homebrew-cask 
+tap homebrew/versions
+tap caskroom/versions
+
+install brew-cask
+install git
+install tmux
+install zsh 
+install wget
+install curl
+install mobile-shell
+
+cask install java7
+cask install dropbox
+cask install skype 
+cask install google-chrome 
+cask install kindle 
+cask install virtualbox
+cask install vagrant 
+cask install sublime-text
+cask install iterm2 
+cask install evernote 
+cask install boot2docker 
+cask install eclipse-jee
+cask install wireshark
