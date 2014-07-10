@@ -12,6 +12,10 @@ install zsh
 install wget
 install curl
 install mobile-shell
+install mysql
+install tomcat
+install jq
+
 
 cask install java7
 cask install dropbox
@@ -26,3 +30,4 @@ cask install evernote
 cask install boot2docker 
 cask install eclipse-jee
 cask install wireshark
+cask install alfred
