@@ -1,11 +1,15 @@
 update
 upgrade
 
-tap phinze/homebrew-cask 
+# Add repositories
 tap homebrew/versions
-tap caskroom/versions
+tap caskroom/cask
 
+# Install brew-cask
+tap phinze/homebrew-cask 
 install brew-cask
+
+# Install brew package
 install git
 install tmux
 install zsh 
@@ -16,7 +20,7 @@ install mysql
 install tomcat
 install jq
 
-
+# Install cask package
 cask install java7
 cask install dropbox
 cask install skype 
@@ -31,3 +35,7 @@ cask install boot2docker
 cask install eclipse-jee
 cask install wireshark
 cask install alfred
+cask install heroku-toolbelt
+cask install macvim-kaoriya
+cask install mysqlworkbench
+cask install keepassx
