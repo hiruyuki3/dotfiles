@@ -23,6 +23,7 @@ install jq
 install android-sdk
 install ansible
 install tig
+install typesafe-activator
 
 # install cask package
 cask install java6
@@ -47,7 +48,7 @@ cask install keepassx
 cask install android-studio
 cask install kobito
 cask install dash
-cask install install karabiner
+cask install karabiner
 
 # link the cask programs in alfred
 cask alfred link
