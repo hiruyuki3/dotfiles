@@ -1,13 +1,14 @@
 update
 upgrade
 
-# Add repositories
-tap homebrew/versions
-tap caskroom/cask
+#tap phinze/homebrew-cask 
+#tap homebrew/versions
 
 # Install brew-cask
-tap phinze/homebrew-cask 
+# Add repositories
+tap caskroom/cask
 install brew-cask
+tap caskroom/versions
 
 # Install brew package
 install git
@@ -19,8 +20,10 @@ install mobile-shell
 install mysql
 install tomcat
 install jq
+install android-sdk
 
 # Install cask package
+cask install java6
 cask install java7
 cask install dropbox
 cask install skype 
@@ -39,3 +42,8 @@ cask install heroku-toolbelt
 cask install macvim-kaoriya
 cask install mysqlworkbench
 cask install keepassx
+cask install android-studio
+#cask install github
+#cask install pgadmin3
+
+cask alfred link
