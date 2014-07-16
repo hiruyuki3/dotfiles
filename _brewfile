@@ -1,16 +1,16 @@
+# update brew
 update
+
+# update formula
 upgrade
 
-#tap phinze/homebrew-cask 
-#tap homebrew/versions
-
-# Install brew-cask
-# Add repositories
+# install brew-cask
+# add repositories
 tap caskroom/cask
 install brew-cask
 tap caskroom/versions
 
-# Install brew package
+# install brew package
 install git
 install tmux
 install zsh 
@@ -21,8 +21,9 @@ install mysql
 install tomcat
 install jq
 install android-sdk
+install ansible
 
-# Install cask package
+# install cask package
 cask install java6
 cask install java7
 cask install dropbox
@@ -43,7 +44,12 @@ cask install macvim-kaoriya
 cask install mysqlworkbench
 cask install keepassx
 cask install android-studio
-#cask install github
-#cask install pgadmin3
+cask install kobito
+cask install dash
 
+# link the cask programs in alfred
 cask alfred link
+
+# remove old versions
+cleanup
+cask cleanup
