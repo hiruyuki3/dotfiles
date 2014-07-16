@@ -1,14 +1,12 @@
 " NeoBundle Settings
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
-  call neobundle#begin(expand('~/.vim/bundle/'))
 endif
+call neobundle#begin(expand('~/.vim/bundle/'))
 
 " NeoBundleで管理するプラグイン
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'vim-scripts/The-NERD-tree'
+NeoBundleFetch  'Shougo/neobundle.vim'
+NeoBundle       'Shougo/unite.vim.git'
 
 " 辞書を呼び出す
 function! s:dict(...)
