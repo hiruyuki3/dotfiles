@@ -1,13 +1,3 @@
-" NeoBundle Settings
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-" NeoBundleで管理するプラグイン
-NeoBundleFetch  'Shougo/neobundle.vim'
-NeoBundle       'Shougo/unite.vim.git'
-
 " 辞書を呼び出す
 function! s:dict(...)
   let is_macunix = has('mac') || has('macunix') || has('gui_macvim') || (!executable('xdg-open') && system('uname') =~? '^darwin')
@@ -57,5 +47,28 @@ set noswapfile
 " vimrcを開く
 nnoremap ,vim :vsplit<cr><C-l>:e! $HOME/.vimrc<cr>
 
+" NeoBundle
+if has('vim_starting')
+   set nocompatible
+   set runtimepath+=~/.vim/bundle/neobundle.vim/
+ endif
+call neobundle#rc(expand('~/.vim/bundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle      'Shougo/unite.vim'
+
+" Unite
+let g:unite_enable_start_insert=1
+let g:unite_source_history_yank_enable =1
+let g:unite_source_file_mru_limit = 200
+nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
+nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+"nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
+
+
+
+
 filetype plugin indent on
 NeoBundleCheck
+
