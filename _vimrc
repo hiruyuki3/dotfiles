@@ -1,4 +1,4 @@
-" 辞書を呼び出す
+" Mac辞書を呼び出す
 function! s:dict(...)
   let is_macunix = has('mac') || has('macunix') || has('gui_macvim') || (!executable('xdg-open') && system('uname') =~? '^darwin')
   if(!is_macunix)
@@ -55,6 +55,9 @@ if has('vim_starting')
 call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle      'Shougo/unite.vim'
+NeoBundle      'Shougo/neomru.vim'
+NeoBundle      'mattn/emmet-vim'
+
 
 " Unite
 let g:unite_enable_start_insert=1
@@ -64,10 +67,10 @@ nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
 nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
-"nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
+nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 
-
-
+" Emmet
+let g:user_emmet_leader_key='<c-e>'
 
 filetype plugin indent on
 NeoBundleCheck
