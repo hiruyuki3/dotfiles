@@ -74,5 +74,3 @@ source-file ~/.tmux.local
 
 # 設定を再読込
 bind-key r source-file ~/.tmux.conf
-display-message "tmux RELOADED!!"
-

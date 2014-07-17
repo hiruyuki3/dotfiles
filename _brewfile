@@ -4,11 +4,12 @@ update
 # update formula
 upgrade
 
-# install brew-cask
 # add repositories
 tap caskroom/cask
-install brew-cask
 tap caskroom/versions
+
+# install brew-cask
+install brew-cask
 
 # install brew package
 install git
@@ -24,6 +25,7 @@ install android-sdk
 install ansible
 install tig
 install typesafe-activator
+install w3m
 
 # install cask package
 cask install java6
