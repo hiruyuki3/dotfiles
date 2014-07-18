@@ -29,25 +29,25 @@ command! -nargs=? Dash call <SID>dash(<f-args>)
 " vi互換オフ
 set nocompatible
 " シンタックスオン
-syntax on           
+syntax on
 " オートインデントを有効
-set autoindent	  	
+set autoindent
 " 行番号を表示
-set number	      	
+set number
 " タブをスペースに変換
-set expandtab	    	
+set expandtab
 " タブをスペース2つにする
-set tabstop=2	    	
+set tabstop=2
 " 表示する時の文字コード
-set encoding=utf-8	
+set encoding=utf-8
 " 保存する時の文字コード
-set fenc=utf-8		  
+set fenc=utf-8
 " バックアップファイルを作成しない
-set nobackup        
+set nobackup
 " スワップファイルを作成しない
-set noswapfile      
+set noswapfile
 " ペースト時のオートインデント停止
-:set paste          
+:set paste
 " c-jにescを割り当てる
 inoremap <C-j> <ESC>
 
@@ -83,19 +83,27 @@ NeoBundle      'kana/vim-submode'
 NeoBundle      'kannokanno/previm'
 NeoBundle      'tyru/open-browser.vim'
 NeoBundle      'Markdown'
-"NeoBundle      'thinca/vim-quickrun'
+NeoBundle      'koron/codic-vim'
 
 " Previm
-" <Space>p + oでプレビュー <Space>p + rでリロード
+" <Space>p + bでプレビュー <Space>p + rでリロード
 " let g:previm_open_cmd = 'open -a Google\ Chrome'
 nnoremap [previm] <Nop>
 nmap <Space>p [previm]
-nnoremap <silent> [previm]o :<C-u>PrevimOpen<CR>
+nnoremap <silent> [previm]b :<C-u>PrevimOpen<CR>
 nnoremap <silent> [previm]r :call previm#refresh()<CR>
 augroup PrevimSettings
     autocmd!
     autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
+
+" OpenBrowser
+ let g:openbrowser_open_filepath_in_vim = 0
+" 現在編集中のファイルをブラウザで開く
+command! OpenBrowserCurrent execute "OpenBrowser" expand("%:p")
+nnoremap <Space>ob :OpenBrowserCurrent<CR>
+
+
 
 " Unite
 let g:unite_enable_start_insert=1
@@ -117,9 +125,9 @@ let g:user_emmet_settings = {
 let g:returnApp = "iTerm"
 " ブラウザをアクティブにする場合は0をセット
 let g:returnAppFlag = 1
-command! -bar Cr silent ChromeReload 
-command! -bar CrStart silent ChromeReloadStart 
-command! -bar CrStop silent ChromeReloadStop 
+command! -bar Cr silent ChromeReload
+command! -bar CrStart silent ChromeReloadStart
+command! -bar CrStop silent ChromeReloadStop
 
 " vim-submode
 " http://d.hatena.ne.jp/thinca/20130131/1359567419
@@ -142,18 +150,8 @@ function! HandleURI()
     echo "No URI found in line."
   endif
 endfunction
+" \w
 map <Leader>w :call HandleURI()<CR>
-
-let g:quickrun_config = {}
-let g:quickrun_config.markdown = {
-      \ 'outputter' : 'null',
-      \ 'command'   : 'open',
-      \ 'cmdopt'    : '-a',
-      \ 'args'      : 'Marked',
-      \ 'exec'      : '%c %o %a %s',
-      \ }
-
-
 
 filetype plugin indent on
 NeoBundleCheck

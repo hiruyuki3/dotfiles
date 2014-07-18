@@ -6,14 +6,14 @@ set-window-option -g utf8 on
 set-window-option -g mode-keys vi
 bind-key m set-option -g mouse-select-pane
 set-option -g synchronize-panes off
-bind e setw synchronize-panes on
-bind E setw synchronize-panes off
+bind e set-window-option synchronize-panes on
+bind E set-window-option synchronize-panes off
 
-# copy
+# コピー
 bind-key [ copy-mode
 bind-key p paste-buffer
 
-# window
+# 基本設定
 set-option -g base-index 1
 bind-key c new-window
 bind-key -n C-M-c new-window
@@ -21,10 +21,10 @@ bind-key -n C-M-p previous-window
 bind-key -n C-M-n next-window
 bind Space choose-window
 
-bind-key -n C-M-s split-window    
-bind-key -n M-2   split-window    
-bind-key -n C-M-v split-window -h 
-bind-key -n M-3   split-window -h 
+bind-key -n C-M-s split-window
+bind-key -n M-2   split-window
+bind-key -n C-M-v split-window -h
+bind-key -n M-3   split-window -h
 
 bind l resize-pane -R
 bind j resize-pane -D
@@ -41,36 +41,48 @@ bind-key -n C-M-j select-pane -D
 bind-key -n C-M-h select-pane -L
 bind-key -n C-M-l select-pane -R
 
-bind b break-pane
+#bind b break-pane
+#set -g set-titles on
+#set -g set-titles-string '#20(whoami)@#H:#20(pwd)'
 
-set -g set-titles on
-set -g set-titles-string '#20(whoami)@#H:#20(pwd)'
-
-set -g status-bg black
+# ステータスバーのUTF-8サポートを有効にする
+set -g status-utf8 on
+# ステータスバーの色を設定する
 set -g status-fg white
-set -g status-attr dim
+set -g status-bg black
+## 左パネルを設定する
+#set -g status-left-length 40
+#set -g status-left "#[fg=green]Session:#[fg=yellow][#I] "
+#set -g status-left ''
 
-set -g status-left ''
-set -g status-left-length 50
+## 右パネルを設定する
+set -g status-right "#[fg=cyan][%Y-%m-%d(%a) %H:%M]"
 
+# アクティブなペインを目立たせる
 set -g pane-active-border-fg blue
 set -g pane-active-border-bg black
-
+# ペインボーダーの色を設定する
+set -g pane-border-fg blue
+set -g pane-border-bg black
+#
 set-window-option -g mode-bg white
 set-window-option -g mode-fg black
+# ウィンドウリストの色を設定する
 set-window-option -g window-status-bg black
 set-window-option -g window-status-fg white
+# アクティブなウィンドウを目立たせる
 set-window-option -g window-status-current-bg black
 set-window-option -g window-status-current-fg blue
 set-window-option -g window-status-current-attr bold
-
+# コマンドラインの色を設定する
 set -g message-attr bold
 set -g message-fg white
 set -g message-bg blue
 
-#
-bind-key -n C-M-e split-window 'exec vim -n ~/.tmux.conf'
+# 設定ファイルを開く
+bind-key -n C-M-e split-window -h 'exec vim -n ~/.tmux.conf'
 source-file ~/.tmux.local
 
 # 設定を再読込
-bind-key r source-file ~/.tmux.conf
+bind r source-file ~/.tmux.conf \; display "tmux Reloaded!"
+
