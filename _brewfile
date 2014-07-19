@@ -7,50 +7,57 @@ upgrade
 # add repositories
 tap caskroom/cask
 tap caskroom/versions
+tap peco/peco
+tap homebrew/binary
 
 # install brew-cask
 install brew-cask
 
 # install brew package
 install git
+install tig
 install tmux
-install zsh 
+install zsh
+install mobile-shell
 install wget
 install curl
-install mobile-shell
+install w3m
+install jq
+install ansible
+install packer
 install mysql
 install tomcat
-install jq
 install android-sdk
-install ansible
-install tig
 install typesafe-activator
-install w3m
+install node
+install go
+install peco
 
 # install cask package
+cask install iterm2
 cask install java6
 cask install java7
-cask install dropbox
-cask install skype 
-cask install google-chrome 
-cask install kindle 
-cask install virtualbox
-cask install vagrant 
-cask install sublime-text
-cask install iterm2 
-cask install evernote 
-cask install boot2docker 
 cask install eclipse-jee
+cask install android-studio
+cask install dropbox
+cask install skype
+cask install evernote
+cask install virtualbox
+cask install vagrant
+cask install boot2docker
 cask install wireshark
 cask install alfred
+cask install dash
 cask install heroku-toolbelt
-cask install macvim-kaoriya
 cask install mysqlworkbench
 cask install keepassx
-cask install android-studio
+cask install macvim-kaoriya
+cask install sublime-text
+cask install mou
 cask install kobito
-cask install dash
 cask install karabiner
+cask install google-chrome
+cask install google-web-designer
 
 # link the cask programs in alfred
 cask alfred link
