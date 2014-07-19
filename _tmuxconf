@@ -90,4 +90,3 @@ source-file ~/.tmux.local
 
 # 設定を再読込
 bind r source-file ~/.tmux.conf \; display "tmux Reloaded!"
-
