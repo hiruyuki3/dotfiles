@@ -34,9 +34,9 @@ function cd() {
   builtin cd $@ && ls;
 }
 
-
 # mosh
 compdef mosh=ssh
 
 # SublimeText起動
-alias st="/opt/homebrew-cask/Caskroom/sublime-text/2.0.2/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
+#alias st="/opt/homebrew-cask/Caskroom/sublime-text/2.0.2/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
+alias st="/opt/homebrew-cask/Caskroom/sublime-text3/Build\ 3059/Sublime\ Text.app/Contents/SharedSupport/bin/subl"

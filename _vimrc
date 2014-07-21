@@ -50,6 +50,8 @@ set noswapfile
 :set paste
 " c-jにescを割り当てる
 inoremap <C-j> <ESC>
+" ビープ音を消す
+set visualbell
 
 " 行末のスペースをハイライト
 augroup HighlightTrailingSpaces

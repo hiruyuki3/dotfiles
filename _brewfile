@@ -52,12 +52,13 @@ cask install heroku-toolbelt
 cask install mysqlworkbench
 cask install keepassx
 cask install macvim-kaoriya
-cask install sublime-text
+cask install sublime-text3
 cask install mou
 cask install kobito
 cask install karabiner
 cask install google-chrome
 cask install google-web-designer
+cask install sketch
 
 # link the cask programs in alfred
 cask alfred link
