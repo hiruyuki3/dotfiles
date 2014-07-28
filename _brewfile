@@ -58,6 +58,7 @@ cask install kobito
 cask install karabiner
 cask install google-chrome
 cask install google-web-designer
+cask install google-drive
 cask install sketch
 
 # link the cask programs in alfred

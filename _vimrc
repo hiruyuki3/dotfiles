@@ -20,11 +20,11 @@ command! -nargs=* Dict call <SID>dict(<f-args>)
 nnoremap ,rr :Dict
 
 " Dashを呼び出す
-function! s:dash(...)
-  let word = len(a:000) == 0 ? input('Dash search: ') : a:1
-  call system(printf("open dash://'%s'", word))
-endfunction
-command! -nargs=? Dash call <SID>dash(<f-args>)
+"function! s:dash(...)
+"  let word = len(a:000) == 0 ? input('Dash search: ') : a:1
+"  call system(printf("open dash://'%s'", word))
+"endfunction
+"command! -nargs=? Dash call <SID>dash(<f-args>)
 
 " vi互換オフ
 set nocompatible
@@ -48,8 +48,8 @@ set nobackup
 set noswapfile
 " ペースト時のオートインデント停止
 :set paste
-" c-jにescを割り当てる
-inoremap <C-j> <ESC>
+" escを割り当てる
+inoremap <C-c> <ESC>
 " ビープ音を消す
 set visualbell
 
@@ -62,12 +62,12 @@ augroup END
 
 " vimrcを開く
 nnoremap ,vim :vsplit<cr><C-l>:e! $HOME/.vimrc<cr>
+
 " vimrc保存時に再読み込みさせる
 augroup reload_vimrc " {
     autocmd!
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END " }
-
 
 " NeoBundle
 if has('vim_starting')
@@ -104,8 +104,6 @@ augroup END
 " 現在編集中のファイルをブラウザで開く
 command! OpenBrowserCurrent execute "OpenBrowser" expand("%:p")
 nnoremap <Space>ob :OpenBrowserCurrent<CR>
-
-
 
 " Unite
 let g:unite_enable_start_insert=1
