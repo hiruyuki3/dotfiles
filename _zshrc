@@ -61,3 +61,4 @@ fi
 
 # 濁点付きファイルの文字化け対策
 setopt combining_chars
+

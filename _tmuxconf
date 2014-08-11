@@ -19,6 +19,7 @@ bind o split-window 'exec vim ~/tmuxlog/$(ls -t ~/tmuxlog | head -1)'
 
 # コピー
 bind [ copy-mode
+bind -nr M-c copy-mode
 bind p paste-buffer
 
 # 基本設定
