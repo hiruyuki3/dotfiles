@@ -30,7 +30,6 @@ install tomcat
 install android-sdk
 install typesafe-activator
 install node
-# npm install -g grunt-cli
 install go
 install peco
 install pwgen
@@ -65,8 +64,7 @@ cask install sketch
 cask install toggldesktop
 cask install cyberduck
 cask install prepros
-#cask install koala
-#cask install less
+cask install gimp-lisanet
 
 # link the cask programs in alfred
 cask alfred link

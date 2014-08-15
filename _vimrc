@@ -4,28 +4,6 @@ if filereadable(s:local_vimrc)
     execute 'source ' . s:local_vimrc
 endif
 
-" mac辞書を呼び出す
-function! s:dict(...)
-  let is_macunix = has('mac') || has('macunix') || has('gui_macvim') || (!executable('xdg-open') && system('uname') =~? '^darwin')
-  if(!is_macunix)
-    echohl WarningMsg
-    echomsg 'Your platform is not supported!'
-    echohl None
-    finish
-  endif
-  let word = len(a:000) == 0 ? input('Dictionary search: ', expand('<cword>')) : join(a:000, ' ')
-  call system(printf("open dict://'%s'", word))
-endfunction
-command! -nargs=* Dict call <SID>dict(<f-args>)
-nnoremap ,rr :Dict
-
-" Dashを呼び出す
-"function! s:dash(...)
-"  let word = len(a:000) == 0 ? input('Dash search: ') : a:1
-"  call system(printf("open dash://'%s'", word))
-"endfunction
-"command! -nargs=? Dash call <SID>dash(<f-args>)
-
 " vi互換オフ
 set nocompatible
 " シンタックスオン
@@ -86,6 +64,12 @@ NeoBundle      'kannokanno/previm'
 NeoBundle      'tyru/open-browser.vim'
 NeoBundle      'Markdown'
 NeoBundle      'koron/codic-vim'
+NeoBundle      'mattn/webapi-vim'
+NeoBundle      'mattn/excitetranslate-vim'
+
+" ExciteTranslate
+nnoremap <silent> tr :<C-u>ExciteTranslate<CR>
+autocmd BufEnter ==Translate==\ Excite nnoremap <buffer> <silent> q :<C-u>close<CR>
 
 " Previm
 " <Space>p + bでプレビュー <Space>p + rでリロード
@@ -136,8 +120,7 @@ let g:user_emmet_settings = {
 \   'lang' : 'ja'
 \ }
 
-" vim-browsereload-mac
-let g:returnApp = "iTerm"
+
 " ブラウザをアクティブにする場合は0をセット
 let g:returnAppFlag = 1
 command! -bar Cr silent ChromeReload
@@ -167,6 +150,35 @@ function! HandleURI()
 endfunction
 " \w
 map <Leader>w :call HandleURI()<CR>
+
+
+if has("mac")
+" mac辞書を呼び出す
+function! s:dict(...)
+  let is_macunix = has('mac') || has('macunix') || has('gui_macvim') || (!executable('xdg-open') && system('uname') =~? '^darwin')
+  if(!is_macunix)
+    echohl WarningMsg
+    echomsg 'Your platform is not supported!'
+    echohl None
+    finish
+  endif
+  let word = len(a:000) == 0 ? input('Dictionary search: ', expand('<cword>')) : join(a:000, ' ')
+  call system(printf("open dict://'%s'", word))
+endfunction
+command! -nargs=* Dict call <SID>dict(<f-args>)
+nnoremap ,rr :Dict
+
+" Dashを呼び出す
+"function! s:dash(...)
+"  let word = len(a:000) == 0 ? input('Dash search: ') : a:1
+"  call system(printf("open dash://'%s'", word))
+"endfunction
+"command! -nargs=? Dash call <SID>dash(<f-args>)
+
+" vim-browsereload-mac
+let g:returnApp = "iTerm"
+endif
+
 
 filetype plugin indent on
 NeoBundleCheck
