@@ -33,6 +33,9 @@ install node
 install go
 install peco
 install pwgen
+install rbenv
+install ruby-build
+
 
 # install cask package
 cask install iterm2
