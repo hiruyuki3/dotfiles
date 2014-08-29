@@ -51,7 +51,7 @@ brew cask install evernote
 brew cask install virtualbox
 brew cask install vagrant
 brew cask install boot2docker
-brew cask install wireshark
+
 brew cask install alfred
 brew cask install dash
 brew cask install heroku-toolbelt
@@ -71,6 +71,7 @@ brew cask install cyberduck
 brew cask install prepros
 brew cask install gimp-lisanet
 brew cask install fluid
+brew cask install sourcetree
 
 # link the cask programs in alfred
 brew cask alfred link
